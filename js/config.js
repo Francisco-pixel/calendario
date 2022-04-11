@@ -17,7 +17,8 @@ btnUpStyle({
 	"wh": "50px"
 })
 function calendar(e) {
-
+		//let validar=/^[0-9]+$/.test(e.target.value)?e.target.value:e.target.value="";
+		
 	let date = new Date(parseInt(e.target.value) || new Date().getFullYear(), 0),
 		dias = "Do Lu Ma Mi Ju Vi Sá".split(" "),
 		meses = "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split(" ");
@@ -61,26 +62,28 @@ function calendar(e) {
 	let calendario = d.querySelectorAll(".calendarios")[new Date().getMonth()];
 	calendario.querySelectorAll(".dia")[new Date().getDay()].style.color = "red";
 	calendario.querySelectorAll(".num_dias")[new Date().getDate() - 1].style.color = "red";
+	if(e.target.value){
+		if(e.target.matches(".buscar")){
+			let validar=/^[a-z]+$/i.test(e.target.value)?e.target.value:e.target.value="";
+			if (e.key == "Escape" || e.key == "Enter") e.target.value = "";
+			let regExp = new RegExp(e.target.value, "i");
+			d.querySelectorAll(".calendarios").forEach(calendario => {
+				if (calendario.innerText.match(regExp)) {
+					calendario.classList.remove("activo")
+				} else {
+					calendario.classList.add("activo")
+				}
+			})
+		}
+	}
+	if(e.target.value){
+		if(e.target.matches(".year")){
+			let validar=/^[0-9]+$/.test(e.target.value)?e.target.value:e.target.value="";
+			if (e.key == "Escape" || e.key == "Enter") e.target.value = "";
+		}
+	}
 
 }
 
 d.addEventListener("keyup", calendar);
 d.addEventListener("DOMContentLoaded", calendar);
-
-d.addEventListener("keyup", e => {
-	if (e.target.matches(".buscar")) {
-		if (e.key == "Escape" || e.key == "Enter") e.target.value = "";
-		let regExp = new RegExp(e.target.value, "i");
-		d.querySelectorAll(".calendarios").forEach(calendario => {
-			if (calendario.innerText.match(regExp)) {
-				calendario.classList.remove("activo")
-			} else {
-				calendario.classList.add("activo")
-			}
-		})
-
-	}
-	if (e.target.matches(".year")) {
-		if (e.key == "Escape" || e.key == "Enter") e.target.value = "";
-	}
-});
