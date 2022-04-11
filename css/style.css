@@ -1,0 +1,164 @@
+:root
+{
+	--h:0;
+	--s:0%;
+	--l:0%;
+	--hC:0;
+	--sC:0%;
+	--lC:0%;
+	--color:hsl(100,70%,40%);
+}	
+
+ul,
+ol{list-style:none;}
+
+body,
+.calendarios,
+.num_dias
+{
+	background:hsl(var(--h),var(--s),var(--l));
+}
+.header__mes,
+.header__fecha,
+.num_dias
+{
+	color:hsl(var(--hC),var(--sC),var(--lC));
+}
+body
+{
+	--l:98%;
+	 height:100%;
+}
+.mostrar
+{
+	display:grid;
+	grid-template-columns:repeat(3,1fr);
+	gap:2rem;
+}
+/*Estilos compartidos*/
+body
+{
+	justify-content:center;
+	align-items:center;
+}
+body,
+ul,
+.inputs,
+.calendarios
+{
+	display:grid;
+	gap:1rem;
+}
+ul
+{
+	list-style:none;
+	grid-template-columns:repeat(7,1fr);
+}
+.dias_semana,
+.dias_del_mes
+{
+	padding:0 1rem;
+}
+.input,
+.calendarios,
+.num_dias
+{
+	transition:all 0.3s ease;
+}
+/*Input*/
+.inputs
+{
+	width:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin-top:1rem;
+	
+}
+.input
+{
+	padding:1rem;
+	border:none;
+	outline:none;
+	width:10rem;
+	border:0.1rem solid hsl(0,0%,90%);
+}
+.input:focus
+{
+	border:0.1rem solid var(--color);
+}
+/*Calendarios*/
+.calendarios
+{
+	--l:100%;
+	border-radius:1rem 1rem 0 0;
+	overflow:hidden;
+}
+.calendarios:hover
+{
+	box-shadow:0.2rem 0.5rem 0.5rem hsl(0,0%,60%);
+}
+/*Header*/
+.header
+{
+	background:var(--color);
+	padding:1rem;
+	display:grid;
+	gap:0.5rem;
+}
+.header__mes,
+.header__fecha
+{
+	text-align:center;
+}
+.header__mes
+{
+	text-transform:uppercase;
+	--lC:100%;
+}
+.header__fecha
+{
+	--lC:95%;
+}
+/*Número de días*/
+.num_dias
+{
+	text-align:center;
+	padding:0.5rem;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	--lC:40%;
+}
+.num_dias:hover
+{
+	--h:0;
+	--s:100%;
+	--l:90%;
+	cursor:pointer;
+}
+.dia
+{
+	color:var(--color);
+}
+.activo
+{
+	display:none;
+}
+
+@media screen and (max-width:1000px){
+	.mostrar
+	{
+		display:grid;
+		grid-template-columns:repeat(2,1fr);
+		gap:2rem;
+	}
+}
+@media screen and (max-width:800px){
+	.mostrar
+	{
+		display:grid;
+		grid-template-columns:repeat(1,1fr);
+		gap:2rem;
+	}
+}
