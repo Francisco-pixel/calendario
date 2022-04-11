@@ -79,6 +79,7 @@ function calendar(e) {
 	if(e.target.value){
 		if(e.target.matches(".year")){
 			let validar=/^[0-9]+$/.test(e.target.value)?e.target.value:e.target.value="";
+			if(e.target.value.length>4)e.target.value="";
 			if (e.key == "Escape" || e.key == "Enter") e.target.value = "";
 		}
 	}
