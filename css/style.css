@@ -93,6 +93,7 @@ ul
 	--l:100%;
 	border-radius:1rem 1rem 0 0;
 	overflow:hidden;
+	padding-bottom:1rem;
 }
 .calendarios:hover
 {
