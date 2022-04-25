@@ -1,8 +1,6 @@
 let cache_name = "cache-calendario",
 cache_file = [
     "./",
-    "./sw.js",
-    "./manifest.json",
     "./css/style.css",
     "./js/config.js",
     "./img/96x96.png",
@@ -72,5 +70,3 @@ self.addEventListener("fetch",e=>{
                 })
         )
     })
-
- 
