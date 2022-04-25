@@ -6,7 +6,8 @@ cache_file = [
     "./img/96x96.png",
     "./img/128x128.png",
     "./img/192x192.png",
-    "./img/calendario.png"
+    "./img/calendario.png",
+    "https://kit.fontawesome.com/925af5c22c.js"
 ];
 /* self.addEventListener("install",e=>{
     const CACHEADO=caches.open(cache_name)
