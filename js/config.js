@@ -13,7 +13,7 @@ conexionInternet()
 btnUp()
 tiempo()
 copiarText()
-registrar_meta_link("./img/calendario.png")
+registrar_meta_link("./img/calendario.png","#4ead1f")
 registrar_service_worker()
 btnUpStyle({
 	"element": ".btn-subir",
