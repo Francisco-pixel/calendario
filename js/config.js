@@ -7,13 +7,17 @@ import { padreHijo } from "https://francisco-pixel.github.io/modulos/js/padreHij
 import { setText } from "https://francisco-pixel.github.io/modulos/js/setText.js";
 import { btnUp, btnUpStyle } from "https://francisco-pixel.github.io/modulos/js/botonSubir.js";
 import { copiarText } from "https://francisco-pixel.github.io/modulos/js/copiarText.js";
+import { registrar_meta_link } from "https://francisco-pixel.github.io/modulos/js/registrar_meta_link.js";
+import { registrar_service_worker } from "https://francisco-pixel.github.io/modulos/js/registrar_service_worker.js";
 conexionInternet()
 btnUp()
 tiempo()
 copiarText()
+registrar_meta_link("./img/calendario.png")
+registrar_service_worker()
 btnUpStyle({
 	"element": ".btn-subir",
-	"bg": "hsl(100,70%,40%)",
+	"bg": "hsl(30,70%,50%)",
 	"wh": "50px"
 })
 function calendar(e) {

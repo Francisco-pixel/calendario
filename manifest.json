@@ -1,0 +1,29 @@
+{
+    "name": "Calendario App",
+    "short_name": "Calendario",
+    "description": "Este calendario web nos facilita las busquedas por años y meses, espero que te sea de gran ayuda :)",
+    "background_color": "hsl(100,70%,40%)",
+    "theme_color": "hsl(100,70%,40%)",
+    "orientation": "portrait",
+    "display": "standalone",
+    "start_url": "./?utm_source=web_app_manifest",
+    "scope": "./",
+    "lang": "es",
+    "icons": [
+      {
+        "src": "./img/192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "./img/128x128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      },
+      {
+        "src": "./img/96x96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      }
+    ]
+  }
