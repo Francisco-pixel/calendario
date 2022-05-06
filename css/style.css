@@ -92,8 +92,12 @@ ul
 {
 	--l:100%;
 	border-radius:1rem 1rem 0 0;
-	overflow:hidden;
 	padding-bottom:1rem;
+}
+.calendarios,
+.header
+{
+border-radius:1rem 1rem 0 0;
 }
 .calendarios:hover
 {
@@ -124,6 +128,7 @@ ul
 /*Número de días*/
 .num_dias
 {
+	position:relative;
 	text-align:center;
 	padding:0.5rem;
 	display:flex;
@@ -137,6 +142,40 @@ ul
 	--s:100%;
 	--l:90%;
 	cursor:pointer;
+}
+.descDia
+{
+position:absolute;
+bottom:100%;
+left:50%;
+transform:translateX(-50%);
+text-align:center;
+padding:1em;
+background:hsl(0,0%,30%);
+color:#fff;
+border-radius:0.3em;
+font-size:0.8em;
+opacity:0;
+visibility:hidden;
+transition:all .3s ease;
+}
+.descDia::before
+{
+--border:.5em;
+--bg:hsl(0,0%,30%);
+content:"";
+position:absolute;
+top:100%;
+left:50%;
+transform:translateX(-50%);
+border-top:var(--border) solid var(--bg);
+border-left:var(--border) solid transparent;
+border-right:var(--border) solid transparent;
+}
+.num_dias:hover .descDia
+{
+opacity:1;
+visibility:visible;
 }
 .dia
 {

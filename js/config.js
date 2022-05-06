@@ -25,6 +25,49 @@ function calendar(e) {
 		
 	let date = new Date(parseInt(e.target.value) || new Date().getFullYear(), 0),
 		dias = "Do Lu Ma Mi Ju Vi Sá".split(" "),
+		feriados={
+			0:{
+				1:"Año nuevo",
+				6:"Día de los Santos Reyes",
+				21:"Día de la Altagracia",
+				26:"Día de Duarte"
+			},
+			1:{
+				27:"Día de la Independencia"
+			},    
+			2:{
+				1:"Sin feriados"
+			},
+			3:{
+				15:"Viernes Santo"
+			},
+			4:{
+				1:"Día del Trabajo"
+			},
+			5:{
+				16:"Corpus Christi"
+			},
+			6:{
+				1:"Sin feriados"
+			},
+			7:{
+				16:"Día de la Restauración"
+			},
+			8:{
+				24:"Día de las Mercedes"
+			},
+			9:{
+				1:"Sin feriados"
+			},
+			10:{
+				6:"Día de la Constitución"
+			},
+			11:{
+				24:"Nochebuena",
+				25:"Navidad",
+				31:"Fin de año"
+			}
+		},
 		meses = "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split(" ");
 	d.querySelector(".mostrar").innerHTML = "";
 	meses.forEach((mes, i) => {
@@ -58,10 +101,21 @@ function calendar(e) {
 		return mostrar;
 	}
 
-	d.querySelectorAll(".calendarios").forEach(calendario => {
+	d.querySelectorAll(".calendarios").forEach((calendario,i) => {
 		let { dia_uno } = calendario.dataset,
-			dias_formateados = dia_uno == 0 ? dia_uno = 7 : dia_uno;
+		todosLosNumDelMes=calendario.querySelectorAll(".num_dias"),
+		dias_formateados = dia_uno == 0 ? dia_uno = 7 : dia_uno;
 		calendario.querySelector(".num_dias").style.gridColumnStart = dias_formateados;
+
+		Object.keys(feriados[i]).forEach(item=>{
+			let resaltarFeriados=d.createElement("span");
+			resaltarFeriados.classList.add("descDia");
+			resaltarFeriados.innerText=feriados[i][item];
+			todosLosNumDelMes[item-1].appendChild(resaltarFeriados)
+			todosLosNumDelMes[item-1].style.color="#2583c5";
+			todosLosNumDelMes[item-1].style.background="#ddd";
+			todosLosNumDelMes[item-1].style.cursor="pointer";
+		})
 	})
 	let calendario = d.querySelectorAll(".calendarios")[new Date().getMonth()];
 	calendario.querySelectorAll(".dia")[new Date().getDay()].style.color = "red";
